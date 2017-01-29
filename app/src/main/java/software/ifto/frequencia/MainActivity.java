@@ -26,14 +26,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         listaTurma = (ListView) findViewById(R.id.lista_turmas);
-
         listaTurma.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> lista, View turma_s, int i, long l) {
                 Turma turma = (Turma) listaTurma.getItemAtPosition(i);
-                Intent intentGoFormulario = new Intent(MainActivity.this, FormularioTurmaActivity.class);
-                intentGoFormulario.putExtra("turma",turma);
-                startActivity(intentGoFormulario);
+                Intent intetGoListaAluno= new Intent(MainActivity.this,ListaAlunosActivity.class);
+                intetGoListaAluno.putExtra("turma",turma);
+                startActivity(intetGoListaAluno);
             }
         });
 
@@ -77,16 +76,24 @@ public class MainActivity extends AppCompatActivity {
             public boolean onMenuItemClick(MenuItem menuItem) {
                 AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
                 Turma turma = (Turma) listaTurma.getItemAtPosition(info.position);
-
                 TurmaDao dao = new TurmaDao(MainActivity.this);
                 dao.deleta(turma);
                 dao.close();
-
                 carregalista();
 
-                Toast.makeText(MainActivity.this, "Turma "+turma.getDescricao()+" deletada", Toast.LENGTH_SHORT).show();
+
                 return false;
             }
         });
-    }
+        menuContexto =  menu.add("Alterar");
+        menuContexto.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+
+
+                return false;
+            }
+        });
+
+            }
 }

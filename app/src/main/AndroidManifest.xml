@@ -15,7 +15,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".FormularioTurmaActivity"></activity>
+        <activity android:name=".FormularioTurmaActivity" />
+        <activity android:name=".ListaAlunosActivity" />
+        <activity android:name=".FormularioAlunoActivity"></activity>
     </application>
 
 </manifest>

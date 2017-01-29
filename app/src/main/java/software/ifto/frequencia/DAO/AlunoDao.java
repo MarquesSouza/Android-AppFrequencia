@@ -18,7 +18,7 @@ import software.ifto.frequencia.model.Aluno;
 import software.ifto.frequencia.model.Turma;
 
 public class AlunoDao extends SQLiteOpenHelper{
-    public AlunoDao(Context context){ super(context,"Frequencia",null,1);}
+    public AlunoDao(Context context){ super(context,"Frequencia- aluno",null,1);}
     @Override
     public void onCreate(SQLiteDatabase db) {
         String sql="CREATE TABLE Alunos(id INTEGER PRIMARY KEY,idTurma INTEGER NOT NULL ,nome TEXT NOT NULL,matricula TEXT NOT NULL,data_criacao DATETIME NOT NULL,data_alteracao DATETIME NOT NULL);";
@@ -34,7 +34,7 @@ public class AlunoDao extends SQLiteOpenHelper{
     public void insere(Aluno aluno){
         SQLiteDatabase db = getWritableDatabase();
         ContentValues dados = getContentValuesAluno(aluno);
-        db.insert("Turmas",null,dados);
+        db.insert("Alunos",null,dados);
     }
     @NonNull
     private ContentValues getContentValuesAluno(Aluno aluno){

@@ -33,7 +33,7 @@ public class FormularioTurmaActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_fomulario_turma, menu);
+        inflater.inflate(R.menu.menu_formulario_turma, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
